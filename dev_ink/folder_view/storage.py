@@ -1,11 +1,24 @@
 import json
 import os
-import pkg_resources
+import shutil
+
+def get_db_path():
+    user_path = os.path.join(os.path.expanduser('~'), '.config', 'dev_ink', 'db.json')
+    system_path = '/usr/share/dev_ink/db.json'
+
+    # Sicherstellen, dass ~/.config/dev_ink existiert
+    os.makedirs(os.path.dirname(user_path), exist_ok=True)
+
+    # Falls keine nutzerdefinierte db.json existiert → kopieren
+    if not os.path.isfile(user_path):
+        shutil.copyfile(system_path, user_path)
+
+    return user_path
 
 class StorageManager:
     '''This class handles the interaction with the storage, it is optimized for folder handling.'''
     def __init__(self, path=None):
-        self.path = path or pkg_resources.resource_filename('dev_ink', 'db.json')
+        self.path = path or get_db_path()
         self._ensure_file()
 
     def _ensure_file(self):
