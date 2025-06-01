@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from .storage import StorageManager
 from .color_picker import select_color
-from color_view.main import Color_view
+from dev_ink.color_view.main import Color_view
 # There is another import in "go back"
 
 class ThemeView(ctk.CTk):
@@ -133,6 +133,6 @@ class ThemeView(ctk.CTk):
 
     def go_back(self):
         '''This function is used to go back to the last instance of the ui.'''
-        from palette_view.main import Palette_view # lazy import
+        from dev_ink.palette_view.main import Palette_view # lazy import
         self.destroy()
         Palette_view(self.folder)

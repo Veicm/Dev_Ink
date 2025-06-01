@@ -80,6 +80,6 @@ class ColorView(ctk.CTk):
 
     def go_back(self):
         '''This function is used to go back to the last instance of the ui.'''
-        from theme_view.main import Theme_view # lazy import
+        from dev_ink.theme_view.main import Theme_view # lazy import
         self.destroy()
         Theme_view(self.folder, self.palette)

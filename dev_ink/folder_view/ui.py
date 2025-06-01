@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from .storage import StorageManager
-from palette_view.main import Palette_view
+from dev_ink.palette_view.main import Palette_view
 
 class FolderView(ctk.CTk):
     def __init__(self):
