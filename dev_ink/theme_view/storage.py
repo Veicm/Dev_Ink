@@ -1,7 +1,7 @@
 import json
 import os
 import colorsys
-from color_view.utils import hex_to_rgb
+from dev_ink.color_view.utils import hex_to_rgb
 
 def hue_sort_key(entry):
     '''This function generates a key which is needed to sort the colors.'''
