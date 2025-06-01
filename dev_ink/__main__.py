@@ -1,4 +1,4 @@
-from folder_view.main import Folder_view
+from dev_ink.folder_view.main import Folder_view
 
 def main():
     try:
