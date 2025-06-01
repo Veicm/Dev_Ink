@@ -1,5 +1,6 @@
 import json
 import os
+import pkg_resources
 import colorsys
 from dev_ink.color_view.utils import hex_to_rgb
 
@@ -16,7 +17,7 @@ class StorageManager:
         self.folder = folder
         self.palette = palette
         base_dir = os.path.dirname(os.path.abspath(__file__))
-        self.path = path or os.path.join(base_dir, "..", "db.json")
+        self.path = path or pkg_resources.resource_filename('dev_ink', 'db.json')
         self._ensure_file()
 
     def _ensure_file(self):

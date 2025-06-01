@@ -1,11 +1,11 @@
 import json
 import os
+import pkg_resources
 
 class StorageManager:
     '''This class handles the interaction with the storage, it is optimized for folder handling.'''
     def __init__(self, path=None):
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        self.path = path or os.path.join(base_dir, "..", "db.json")
+        self.path = path or pkg_resources.resource_filename('dev_ink', 'db.json')
         self._ensure_file()
 
     def _ensure_file(self):
