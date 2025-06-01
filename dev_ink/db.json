@@ -1,0 +1,45 @@
+{
+  "Demo": {
+    "Dev Ink theme": [
+      {
+        "name": "Buttons",
+        "color": "#1F538D"
+      },
+      {
+        "name": "Background",
+        "color": "#212121"
+      },
+      {
+        "name": "Text",
+        "color": "#CDE2EB"
+      },
+      {
+        "name": "Light Background",
+        "color": "#363636"
+      }
+    ],
+    "Basic colors": [
+      {
+        "name": "Red",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Green",
+        "color": "#00ff00"
+      },
+      {
+        "name": "Yellow",
+        "color": "#ffff00"
+      },
+      {
+        "name": "Cyan",
+        "color": "#00ffff"
+      },
+      {
+        "name": "Blue",
+        "color": "#0000ff"
+      }
+    ]
+  },
+  "folder 2": {}
+}

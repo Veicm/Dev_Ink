@@ -1,2 +1,2 @@
-# Dev_Ink
-A Gui programm to create, save and sort difrent color themes, written in python.
+# Dev Ink
+A Gui program to create, save and sort different color themes, written in python.
