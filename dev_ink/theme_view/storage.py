@@ -26,8 +26,11 @@ class StorageManager:
     def __init__(self, folder:str, palette:str, path=None):
         self.folder = folder
         self.palette = palette
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        self.path = path or os.path.join(base_dir, "..", "db.json") or get_db_path()
+        try:
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            self.path = path or os.path.join(base_dir, "..", "db.json")
+        except Exception:
+            self.path = get_db_path()
         self._ensure_file()
 
     def _ensure_file(self):
