@@ -19,7 +19,8 @@ class StorageManager:
     '''This class handles the interaction with the storage, it is optimized for palette handling.'''
     def __init__(self, folder:str, path=None):
         self.folder = folder
-        self.path = path or get_db_path()
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        self.path = path or os.path.join(base_dir, "..", "db.json") or get_db_path()
         self._ensure_file()
 
     def _ensure_file(self):
