@@ -1,28 +1,23 @@
 import json
 import os
-import shutil
+from pathlib import Path
 
 def get_db_path():
-    user_path = os.path.join(os.path.expanduser('~'), '.config', 'dev_ink', 'db.json')
-    system_path = '/usr/share/dev_ink/db.json'
-
-    # Sicherstellen, dass ~/.config/dev_ink existiert
-    os.makedirs(os.path.dirname(user_path), exist_ok=True)
-
-    # Falls keine nutzerdefinierte db.json existiert → kopieren
-    if not os.path.isfile(user_path):
-        shutil.copyfile(system_path, user_path)
-
-    return user_path
+    try:
+        default_path = Path(__file__).resolve().parent.parent / "db.json"
+        
+        with open(default_path, "r"):
+            pass
+        
+        return default_path
+    
+    except (PermissionError, FileNotFoundError):
+        return Path.home() / ".config" / "dev_ink" / "db.json"
 
 class StorageManager:
     '''This class handles the interaction with the storage, it is optimized for folder handling.'''
     def __init__(self, path=None):
-        try:
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            self.path = path or os.path.join(base_dir, "..", "db.json")
-        except Exception:
-            self.path = get_db_path()
+        self.path = path or get_db_path()
         self._ensure_file()
 
     def _ensure_file(self):

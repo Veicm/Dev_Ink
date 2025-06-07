@@ -1,6 +1,6 @@
 import json
 import os
-import shutil
+from pathlib import Path
 import colorsys
 from dev_ink.color_view.utils import hex_to_rgb
 
@@ -11,26 +11,23 @@ def hue_sort_key(entry):
     return h  # returns the required key
 
 def get_db_path():
-    user_path = os.path.join(os.path.expanduser('~'), '.config', 'dev_ink', 'db.json')
-    system_path = '/usr/share/dev_ink/db.json'
-
-    os.makedirs(os.path.dirname(user_path), exist_ok=True)
-
-    if not os.path.isfile(user_path):
-        shutil.copyfile(system_path, user_path)
-
-    return user_path
+    try:
+        default_path = Path(__file__).resolve().parent.parent / "db.json"
+        
+        with open(default_path, "r"):
+            pass
+        
+        return default_path
+    
+    except (PermissionError, FileNotFoundError):
+        return Path.home() / ".config" / "dev_ink" / "db.json"
 
 class StorageManager:
     '''This class handles the interaction with the storage, it is optimized for color handling.'''
     def __init__(self, folder:str, palette:str, path=None):
         self.folder = folder
         self.palette = palette
-        try:
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            self.path = path or os.path.join(base_dir, "..", "db.json")
-        except Exception:
-            self.path = get_db_path()
+        self.path = path or get_db_path()
         self._ensure_file()
 
     def _ensure_file(self):
