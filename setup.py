@@ -2,7 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name='dev_ink',
-    version='0.9.0',
+    use_scm_version=True,
+    setup_requires=["setuptools_scm"],
     packages=find_packages(),
     entry_points={
         'gui_scripts': [
