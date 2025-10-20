@@ -11,6 +11,17 @@
 # Dev Ink
 A GUI program to create, save, and sort different color themes, written in Python.
 
+## Screenshots
+
+<img width="502" height="505" alt="screenshot_20102025_162820" src="https://github.com/user-attachments/assets/ba9a7bb5-401d-405e-be93-830d2a665eec" />
+
+<img width="501" height="505" alt="screenshot_20102025_162804" src="https://github.com/user-attachments/assets/65d840f7-e476-4889-9e8d-73f8507c9043" />
+
+<img width="500" height="502" alt="screenshot_20102025_162742" src="https://github.com/user-attachments/assets/43626744-6153-44af-afe3-33d338d8f01d" />
+
+<img width="499" height="503" alt="screenshot_20102025_162724" src="https://github.com/user-attachments/assets/d23871c9-f55f-40ec-9d3b-1ffb4706b4b1" />
+
+
 ## Installation
 
 ### Arch Linux (based)
